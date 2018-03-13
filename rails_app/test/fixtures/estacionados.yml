@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_veiculo: MyString
+  placa: MyString
+  entrada: 2018-03-12 23:58:45
+  saida: 2018-03-12 23:58:45
+  valor: 9.99
+
+two:
+  tipo_veiculo: MyString
+  placa: MyString
+  entrada: 2018-03-12 23:58:45
+  saida: 2018-03-12 23:58:45
+  valor: 9.99

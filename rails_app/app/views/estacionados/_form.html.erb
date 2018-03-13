@@ -1,0 +1,42 @@
+<%= form_with(model: estacionado, local: true) do |form| %>
+  <% if estacionado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(estacionado.errors.count, "error") %> prohibited this estacionado from being saved:</h2>
+
+      <ul>
+      <% estacionado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tipo_veiculo %>
+    <%= form.text_field :tipo_veiculo, id: :estacionado_tipo_veiculo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :placa %>
+    <%= form.text_field :placa, id: :estacionado_placa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :entrada %>
+    <%= form.datetime_select :entrada, id: :estacionado_entrada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :saida %>
+    <%= form.datetime_select :saida, id: :estacionado_saida %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valor %>
+    <%= form.text_field :valor, id: :estacionado_valor %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

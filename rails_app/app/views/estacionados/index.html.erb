@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Estacionados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo veiculo</th>
+      <th>Placa</th>
+      <th>Entrada</th>
+      <th>Saida</th>
+      <th>Valor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estacionados.each do |estacionado| %>
+      <tr>
+        <td><%= estacionado.tipo_veiculo %></td>
+        <td><%= estacionado.placa %></td>
+        <td><%= estacionado.entrada %></td>
+        <td><%= estacionado.saida %></td>
+        <td><%= estacionado.valor %></td>
+        <td><%= link_to 'Show', estacionado %></td>
+        <td><%= link_to 'Edit', edit_estacionado_path(estacionado) %></td>
+        <td><%= link_to 'Destroy', estacionado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Estacionado', new_estacionado_path %>

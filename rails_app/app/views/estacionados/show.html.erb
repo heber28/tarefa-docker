@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo veiculo:</strong>
+  <%= @estacionado.tipo_veiculo %>
+</p>
+
+<p>
+  <strong>Placa:</strong>
+  <%= @estacionado.placa %>
+</p>
+
+<p>
+  <strong>Entrada:</strong>
+  <%= @estacionado.entrada %>
+</p>
+
+<p>
+  <strong>Saida:</strong>
+  <%= @estacionado.saida %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @estacionado.valor %>
+</p>
+
+<%= link_to 'Edit', edit_estacionado_path(@estacionado) %> |
+<%= link_to 'Back', estacionados_path %>

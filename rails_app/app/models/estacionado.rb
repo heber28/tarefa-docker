@@ -1,0 +1,2 @@
+class Estacionado < ApplicationRecord
+end

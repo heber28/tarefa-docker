@@ -1,6 +1,5 @@
-<h1>Editing Estacionado</h1>
-
-<%= render 'form', estacionado: @estacionado %>
-
-<%= link_to 'Show', @estacionado %> |
-<%= link_to 'Back', estacionados_path %>
+<%- model_class = Estacionado -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

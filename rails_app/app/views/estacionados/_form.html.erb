@@ -1,42 +1,62 @@
-<%= form_with(model: estacionado, local: true) do |form| %>
-  <% if estacionado.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(estacionado.errors.count, "error") %> prohibited this estacionado from being saved:</h2>
+<%= form_for @estacionado, :html => { :class => "form-horizontal estacionado" } do |f| %>
 
-      <ul>
-      <% estacionado.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @estacionado.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@estacionado.errors.count, "error") %> prohibited this estacionado from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @estacionado.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :tipo_veiculo %>
-    <%= form.text_field :tipo_veiculo, id: :estacionado_tipo_veiculo %>
+  <div class="form-group">
+    <%= f.label :tipo_veiculo, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :tipo_veiculo, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:tipo_veiculo) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :placa, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :placa, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:placa) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :entrada, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :entrada, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:entrada) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :saida, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :saida, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:saida) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :valor, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :valor, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:valor) %>
   </div>
 
-  <div class="field">
-    <%= form.label :placa %>
-    <%= form.text_field :placa, id: :estacionado_placa %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                estacionados_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :entrada %>
-    <%= form.datetime_select :entrada, id: :estacionado_entrada %>
-  </div>
-
-  <div class="field">
-    <%= form.label :saida %>
-    <%= form.datetime_select :saida, id: :estacionado_saida %>
-  </div>
-
-  <div class="field">
-    <%= form.label :valor %>
-    <%= form.text_field :valor, id: :estacionado_valor %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

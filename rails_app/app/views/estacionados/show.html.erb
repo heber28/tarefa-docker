@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Estacionado -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Tipo veiculo:</strong>
-  <%= @estacionado.tipo_veiculo %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:tipo_veiculo) %>:</strong></dt>
+  <dd><%= @estacionado.tipo_veiculo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:placa) %>:</strong></dt>
+  <dd><%= @estacionado.placa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:entrada) %>:</strong></dt>
+  <dd><%= @estacionado.entrada %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:saida) %>:</strong></dt>
+  <dd><%= @estacionado.saida %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:valor) %>:</strong></dt>
+  <dd><%= @estacionado.valor %></dd>
+</dl>
 
-<p>
-  <strong>Placa:</strong>
-  <%= @estacionado.placa %>
-</p>
-
-<p>
-  <strong>Entrada:</strong>
-  <%= @estacionado.entrada %>
-</p>
-
-<p>
-  <strong>Saida:</strong>
-  <%= @estacionado.saida %>
-</p>
-
-<p>
-  <strong>Valor:</strong>
-  <%= @estacionado.valor %>
-</p>
-
-<%= link_to 'Edit', edit_estacionado_path(@estacionado) %> |
-<%= link_to 'Back', estacionados_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              estacionados_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_estacionado_path(@estacionado), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              estacionado_path(@estacionado),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
